@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HESS</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</head>
+<body>
+<style>
+body, html {
+   height:100%;
+   margin: 0;
+   font:400 15px/1.8 "Lustria", serif;
+   color:#777;
+  overflow-x: hidden;
+}
+</style>
+<style>
+    .menu-4 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.menu-4 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.menu-4 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+  overflow: hidden;
+}
+.menu-4 a {
+  padding: 0.3em 0;
+  color: #212121;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none;
+}
+.menu-4 a:before,
+.menu-4 a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.menu-4 a:before {
+  bottom: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #e67e22;
+}
+.menu-4 a:after {
+  padding: 0.3em 0;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  content: attr(data-hover);
+  color: #212121;
+  white-space: nowrap;
+}
+.menu-4 li:hover a,
+.menu-4 .current a {
+  transform: translateY(100%);
+}
+</style>
+    <nav class=" style-4">
+        <ul class="menu-4">
+ {%if session.loggedin%}
+          <li>
+            <a href="{{ url_for('addpublications') }}" data-hover="addpublications">addpublications</a>
+          </li>
+          <li>
+            <a href="{{ url_for('updatepublication') }}" data-hover="Updatepublications">updatepublications</a>
+          </li>
+          <li >
+            <a href="{{ url_for('addcourse') }}"data-hover="Addcourse">Addcourse</a>
+          </li>
+          <li>
+            <a href="{{ url_for('updatecourse') }}" data-hover="updatecourse">updatecourse</a>
+          </li>
+          <li>
+          <a href="{{ url_for('logout') }}" data-hover="logout">Logout</a>
+          </li>
+{%else%}
+             <li> <a href="{{ url_for('index') }}" data-hover="Home">Home</a></li>
+            <li ><a href="{{ url_for('about') }}"data-hover="About">About</a></li>
+            <li><a href="{{ url_for('gallery') }}"data-hover="Gallery">Gallery</a></li>
+          <li>
+            <a href="{{ url_for('publications') }}"data-hover="Publications">Publications</a>
+          </li>
+            <li>
+              <a href="{{ url_for('courses') }}" data-hover="Courses">Courses</a>
+            </li>
+            <li>
+              <a href="{{ url_for('events') }}" data-hover="Workshop">Workshop</a>
+            </li>
+            <li>
+            <a href="{{ url_for('subscribe') }}" data-hover="Subscribe">Subscribe</a>
+          </li>
+             <li class="nav-item">
+             <a href="{{ url_for('login') }}" data-hover="Login">Login</a>
+             </li>
+             <li>
+             <a href="{{ url_for('signup') }}" data-hover="SignUp">SignUp</a>
+             </li>
+        </ul>
+{%endif%}
+        </nav>
+
+</div>
+
+
+          <style><strong>{font-family:"Times New Roman", serif}
+          h1,h2{font-family:georgia,serif;font-variant: small-caps; letter-spacing:5px}
+         </style>
+
+
+
+
+
+         <style>
+
+              body, html {
+               height:100%;
+               margin: 0;
+               font:400 15px/1.8 "Times New Roman", serif;
+               color:#777;
+             }
+
+             .bgimg-1, .bgimg-2, .bgimg-3 {
+              position: relative;
+              opacity: 0.65;
+              background-attachment: fixed;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+
+             }
+
+             .bgimg-1{
+               background-image: url("static/images/003.jpg");
+             min-height: 100%;
+             }
+
+             .bgimg-2{
+               background-image: url("static/images/000.jpg");
+             min-height: 100%;
+           }
+
+           .bgimg-3{
+             background-image: url("static/images/333.jpg");
+
+           min-height: 100%;
+           }
+
+           .caption{
+             position: absolute;
+             left: 0;
+             top: 50%;
+             width: 100%;
+             text-align: center;
+             color: #000;
+           }
+
+              .caption span.border {
+                background-color: #transparent;
+                color: #111;
+                padding: 10px;
+                font-size: 25px;
+                letter-spacing: 10px;
+              }
+
+               h3{
+                 letter-spacing: 5px;
+                 text-transform: uppercase;
+                 font-family: "Times New Roman", georgia,serif;font-variant: small-caps;
+                 color: #111;
+               }
+
+            @media only screen and (max-device-width: 1024px) {
+              .bgimg-1, .bgimg-2, .bgimg-3 {
+                background-attachment: scroll;
+              }
+            }
+
+
+         </style>
+
+
+           <div class="bgimg-1">
+             <div class="caption">
+               <span class="border" style="background-color:#0dcaf0;font-size25px; font-variant: small-caps; font-weight: bold; color:#111">HESS</span>
+               </div>
+             </div>
+
+             <div style="color:#777;background-color:rgb(13 110 253 / 25%);text-aling:center;padding:50px 80px;text-align:justify;">
+             <h3 style="text-align: center;">Humane Education Sustainable Solutions</h3>
+             <p></p>
+             </div>
+
+
+             <div class="bgimg-2">
+              <a href="{{ url_for('about') }}">
+                <div class="caption">
+                 <span class="border" style="background-color:#0dcaf0;font-size25px; font-variant: small-caps; font-weight: bold; color:#111">ABOUT</span>
+                </div>
+              </a>
+               </div>
+
+
+             <div style="position: relative;">
+                 <div style="color: #000; background-color:rgb(13 110 253 / 25%);text-align:center;padding:50px 80px;text-align:justify; font-weight: bold; font: Times New Roman, serif;">
+             <p>  "He who opens a school door, closes a prison"<p>
+                 <br>
+             - VIktor Hugo</p>
+              </div>
+
+             </div>
+
+
+             <div class="bgimg-3">
+                <a href="{{ url_for('gallery') }}">
+               <div class="caption">
+                 <span class="border"style="background-color:#0dcaf0;font-size25px; font-variant: small-caps; font-weight: bold; color:#111">GALLERY</span>
+                 </div>
+               </a>
+               </div>
+
+
+               <div style="position: relative;">
+                <div style="color: #111; background-color:rgb(13 110 253 / 25%);text-align:center;padding:50px 80px;text-align:justify; font-weight: bold; font: Times New Roman, serif;">
+                 <p>Education is the passport to the future, for tomorrow belongs to those who prepare for it today<br>
+                 - Malcom X</p>
+                </div>
+               </div>
+
+
+               <div class="bgimg-1">
+                 <a href="{{ url_for('subscribe') }}">
+                  <div class="caption">
+                   <span class="border" style="background-color:#0dcaf0;font-size25px; font-variant: small-caps; font-weight: bold; color:#111">JOIN US</span>
+                 </div>
+                </a>
+             </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBk lPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+  </body>
+  </html>

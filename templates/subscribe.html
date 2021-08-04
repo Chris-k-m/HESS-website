@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
+   <head>
+      <meta charset="utf-8">
+      <title>Subscribe to HESS</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<style>
+    .menu-4 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.menu-4 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.menu-4 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+  overflow: hidden;
+}
+.menu-4 a {
+  padding: 0.3em 0;
+  color: #212121;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none;
+}
+.menu-4 a:before,
+.menu-4 a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.menu-4 a:before {
+  bottom: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: transparent;
+}
+</style>
+             <style>
+           @import url('https://fonts.googleapis.com/css?family=Lobster+Two:700|Poppins&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  text-align: center;
+  background: #44d1ee;
+  font-family: 'Poppins',sans-serif;
+}
+::selection{
+  color: white;
+  background: #48DBFB;
+}
+.center,.modal-box{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-box{
+  top: 40%;
+  opacity: 1;
+  visibility: visible;
+  background: white;
+  height: auto;
+  width: 400px;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid #50dcfb;
+  box-shadow: 5px 5px 30px rgba(0,0,0,.2);
+}
+
+.modal-box .fa-times{
+  position: relative;
+  top: 0;
+  right: 0;
+  background: #48DBFB;
+  height: 45px;
+  width: 50px;
+  line-height: 40px;
+  color: white;
+  font-size: 18px;
+  border-radius: 0 5px 0 50px;
+  padding-left: 13px;
+  cursor: pointer;
+}
+.fa-times:hover{
+  font-size: 22px;
+}
+.modal-box .icon1{
+  font-size: 60px;
+  background: #48DBFB;
+  height: 120px;
+  width: 120px;
+  color: white;
+  border-radius: 50%;
+  line-height: 120px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.modal-box header{
+  font-size: 31px;
+  font-family: 'Lobster Two';
+  margin-bottom: 10px;
+}
+.modal-box p{
+  /* margin-bottom: 10px; */
+  line-height: 20px;
+  color: grey;
+}
+form input, form button{
+  height: 50px;
+  width: 95%;
+  border-radius: 3px;
+}
+form .icon2{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  margin-top: 15px;
+  background: #48DBFB;
+  color: white;
+  line-height: 50px;
+  font-size: 24px;
+  border-radius: 5px 0 0 5px;
+}
+form input{
+  margin-top: 15px;
+  padding: 0 65px;
+  font-size: 18px;
+  outline: none;
+  border: 2px solid #1ed2fa;
+  caret-color: #48DBFB;
+}
+input::placeholder{
+  color: #8c8c8c;
+}
+form input:focus{
+  box-shadow: 0 0 15px #82e6fc,
+              0 0 25px #b4f0fd,
+              0 0 35px #ffffff;
+}
+form button{
+  margin-top: 15px;
+  background: #48DBFB;
+  color: white;
+  font-size: 25px;
+  border: 1px solid #1ed2fa;
+  letter-spacing: 1px;
+  cursor: pointer;
+  outline: none;
+  transition: .3s;
+}
+form button:hover{
+  background: #1ed2fa;
+  border: 1px solid #05cdfa;
+  letter-spacing: 2px;
+}
+.modal-box .icons{
+  margin-top: 25px;
+}
+.icons i{
+  font-size: 22px;
+  margin: 0 7px;
+  color: #48DBFB;
+  cursor: pointer;
+}
+.icons i:hover{
+  transform: scale(1.1);
+  color: #05cdfa;
+}
+       </style>
+<style>
+  div.styl {
+    padding: 5px;
+    margin: 2px
+   }
+
+   a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+   }
+.bg-img {
+  /* The image used */
+  background-image: url("static/images/pastel2.jpg");
+
+  /* Control the height of the image */
+  min-height: 780px;
+
+  /* Center and scale the image nicely */
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+#main {
+background-color: transparent;
+transition: margin-left .5s;
+padding: 1px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+.sidebar {padding-top: 15px;}
+.sidebar a {font-size: 18px;}
+}
+  </style>
+    <style>
+body {
+font-family: "Times New Roman", serif;
+}
+</style>
+</head>
+   <body>
+   <div class="bg-img">
+
+      <nav class=" style-4">
+         <ul class="menu-4">
+            <li> <a href="{{ url_for('index') }}" data-hover="HESS">HESS</a>
+            </li>
+            <li><a href="{{ url_for('about') }}"data-hover="About">About</a></li>
+
+            <li><a href="{{ url_for('gallery') }}"data-hover="Gallery">Gallery</a></li>
+            <li>
+               <a href="{{ url_for('publications') }}"data-hover="Publications">Publications</a>
+            </li>
+            {%if session.loggedin%}
+            <h1> Hello, welcome back {{ session.firstname }}.</h1>
+
+            <li>
+               <a href="{{ url_for('logout') }}" data-hover="logout">Logout</a>
+            </li>
+            {%endif%}
+         </ul>
+
+      </nav>
+
+
+      <header class=" w3-display-container w3-content w3-theme w3-wide" style="max-width:1500px" id="publications">
+         <img class="w3-bgimage" src="static/images/602.jpg" alt="Books" width="1500" height="230">
+         <div class="w3-display-middle w3-margin-top w3-center">
+            <h1 class="w3-xxxlarge w3-animate-top w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>HESS</b></span></h1>
+            <h2 class="w3-xxxlarge w3-animate-bottom"><span class="w3-hide-small w3-text-light-grey">Events</span></h2>
+         </div>
+      </header>
+
+      <style><strong>{font-family:"Times New Roman", serif}
+          h1,h2,h3{font-family:georgia,serif;font-variant: small-caps; letter-spacing:5px}
+         </style>
+
+
+      <div class="center modal-box">
+         <div class="fas fa-envelope icon1"></div>
+         <h1>Don't miss updates from us!</h1>
+         <p>
+            Join us for regular updates on our Publicatons and Events
+         </p>
+         <form action="{{ url_for('subscribe') }}" method="POST" >
+            <div class="fas fa-envelope icon2"></div>
+            <input type="email"name="email" required placeholder="abc@example.com">
+            <button>Subscribe</button>
+         </form>
+         <div class="icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+         </div>
+      </div>
+   </div>
+</body>
+</html>

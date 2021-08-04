@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<title>HESS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2 {font-family: "Times New Roman", serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url(static/images/501.jpg);
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+
+</style>
+<style>
+    .menu-4 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.menu-4 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.menu-4 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+  overflow: hidden;
+}
+.menu-4 a {
+  padding: 0.3em 0;
+  color: #212121;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none;
+}
+.menu-4 a:before,
+.menu-4 a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.menu-4 a:before {
+  bottom: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #e67e22;
+}
+.menu-4 a:after {
+  padding: 0.3em 0;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  content: attr(data-hover);
+  color: #212121;
+  white-space: nowrap;
+}
+.menu-4 li:hover a,
+.menu-4 .current a {
+  transform: translateY(100%);
+}
+</style>
+<body>
+  <nav class=" style-4">
+        <ul class="menu-4">
+                 <li> <a href="{{ url_for('index') }}" data-hover="HESS">HESS</a>
+                 </li>
+             <li>
+            <a href="{{ url_for('about') }}"data-hover="About">About</a>
+          </li>
+            <li>
+            <a href="{{ url_for('gallery') }}"data-hover="Gallery">Gallery</a>
+          </li>
+             <li>
+              <a href="{{ url_for('publications') }}" data-hover="publications">Publication</a>
+            </li>
+            <li>
+              <a href="{{ url_for('courses') }}" data-hover="Courses">Courses</a>
+            </li>
+            <li>
+              <a href="{{ url_for('events') }}" data-hover="Workshop">Workshop</a>
+            </li>
+
+{%if session.loggedin%}
+            <h1> Hello, welcome back {{ session.firstname }}.</h1>
+
+                <li>
+                  <a href="{{ url_for('logout') }}" data-hover="logout">Logout</a>
+                </li>
+{%endif%}
+
+        </ul>
+
+    </nav>
+<h1>{{msg}}</h1>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-black">
+
+<div style="background-color:transparent; font-variant: small-caps; font-weight: bold; color:#111">
+
+     <div style="color:black;padding:24px 40px;text-align:justify; font:Times New Roman, serif">
+ <div class="header">
+<h1> PUBLICATIONS </h1>
+</div>
+
+  <div class= container>
+     <div style="color:black; text-aling: center;padding:24px 40px;text-align:justify; font: Times New Roman, serif">
+ <div class="header">
+<h2> Update Publication </h2>
+</div>
+
+<form action="{{ url_for('updatepublication') }}" autocomplete="off" method="post">
+
+    <div class="input-group form-group">
+  <input class="w3-input w3-animate-input w3-round" style="width:30%" type="text" name="publication_Id" placeholder="Input your Publication No" id="new_publication_Id" required>
+  </div>
+<br>
+
+   <div class="input-group form-group">
+  <input class="w3-input w3-animate-input w3-round" style="width:30%" type="text" name="title" placeholder="Title" id="new_title" required>
+  </div>
+<br>
+
+    <div class="input-group form-group">
+  <input class="w3-input w3-animate-input w3-round" style="width:30%" type="text" name="description" placeholder="Description" id="new_description" required>
+  </div>
+  <br>
+
+   <div class="input-group form-group">
+   <input type="date" name="created" placeholder="Date" id="new_created" required>
+          </div>
+          <br>
+   <div class="input-group form-group">
+           <label for="new_content"><i>Type it!:</i></label>
+      <textarea name="content" id="new_content" rows="10" cols="100"></textarea>
+   </div>
+           <br><br>
+
+           <button type="submit" class="w3-button w3-circle w3-black"><b>+ADD</b></button>
+
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+  <div class="w3-display-bottomleft w3-padding-large">
+    <a><b><i>Humane Education Sustainable Solutions</i></b></a>
+  </div>
+</div>
+
+</body>
+</html>

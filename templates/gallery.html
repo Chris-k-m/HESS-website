@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HESS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link href="{{url_for('static', filename='css/gallery.css')}}" rel="stylesheet">
+<style>
+  body, html {
+   height:100%;
+   margin: 0;
+   font:400 15px/1.8 "Times New Roman", serif;
+   color:#777;
+  overflow-x: hidden;
+}
+
+/* Full height */
+  height: 100%;
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("static/images/pastel3.jpg");
+
+  /* Control the height of the image */
+  min-height: 380px;
+
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  max-width: 300px;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+  input[type=email],input[type=text] ,input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+</style>
+<style>
+    .menu-4 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.menu-4 * {
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.menu-4 li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+  overflow: hidden;
+}
+.menu-4 a {
+  padding: 0.3em 0;
+  color: #212121;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  margin: 0;
+  text-decoration: none;
+}
+.menu-4 a:before,
+.menu-4 a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.menu-4 a:before {
+  bottom: 100%;
+  display: block;
+  height: 3px;
+  width: 100%;
+  content: "";
+  background-color: #e67e22;
+}
+.menu-4 a:after {
+  padding: 0.3em 0;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  content: attr(data-hover);
+  color: #212121;
+  white-space: nowrap;
+}
+.menu-4 li:hover a,
+.menu-4 .current a {
+  transform: translateY(100%);
+}
+
+body, html {height: 100%}
+.bg-img {
+  /* The image used */
+  background-image: url("static/images/pastel2.jpg");
+
+  /* Control the height of the image */
+  min-height: 100%;
+
+  /* Center and scale the image nicely */
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+</style>
+
+</head>
+<body>
+<div class="bg-img">
+    <nav class=" style-4">
+        <ul class="menu-4">
+                 <li> <a href="{{ url_for('index') }}" data-hover="HESS">HESS</a>
+                 </li>
+            <li>
+            <a href="{{ url_for('about') }}"data-hover="About">About</a>
+          </li>
+          <li>
+            <a href="{{ url_for('publications') }}"data-hover="Publications">Publications</a>
+          </li>
+            <li>
+              <a href="{{ url_for('courses') }}" data-hover="Courses">Courses</a>
+            </li>
+            <li>
+              <a href="{{ url_for('events') }}" data-hover="Workshops">Workshops</a>
+            </li>
+                <li>
+                  <a href="{{ url_for('signup') }}" data-hover="SignUp">SignUp </a>
+                </li>
+{%if session.loggedin%}
+            <h1> Hello, welcome back {{ session.firstname }}.</h1>
+                <li>
+                  <a href="{{ url_for('logout') }}" data-hover="logout">Logout</a>
+                </li>
+{%endif%}
+        </ul>
+            </nav>
+
+
+    <style>
+    body {
+      margin: 0;
+    }
+
+    img {
+      vertical-align: middle;
+      max-height: inherit;
+      max-width: inherit;
+    }
+
+    /* Position the image container (needed to position the left and right arrows) */
+    .container {
+      position: relative;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+      display: none;
+    }
+
+    /* Add a pointer when hovering over the thumbnail images */
+    .cursor {
+      cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: transparent;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: black;
+      font-family: "Times New Roman", serif;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* Container for image text */
+    .caption-container {
+      text-align: center;
+      font-family: "Times New Roman", serif;
+      font-size: 20px;
+      background-color: white;
+      padding: 4px 16px;
+      color: black;
+    }
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Six columns side by side */
+    .column {
+      float: left;
+      width: 16.66%;
+    }
+
+    /* Add a transparency effect for thumnbail images */
+    .demo {
+      opacity: 0.6;
+    }
+
+    .active,
+    .demo:hover {
+      opacity: 1;
+    }
+</style>
+
+<style>
+    div.gallery {
+      margin: 1em;
+      border: 2px solid #ccc;
+      float: center;
+      width: auto;
+    }
+
+    div.gallery:hover {
+      border: 1px solid #777;
+    }
+
+    div.gallery img {
+      width: 90%;
+      height: auto;
+    }
+
+    div.desc {
+      padding: 1em;
+      text-align: center;
+    }
+
+
+
+
+
+
+    </style>
+
+             <style><strong>{font-family:"Times New Roman", serif}
+               h1{font-family:georgia,serif;font-variant: small-caps; letter-spacing:5px}
+            </style>
+
+            <header class=" w3-display-container w3-content w3-theme w3-wide" style="max-width:1500px" id="gallery">
+                <img class="w3-bgimage" src="static/images/502.jpg" alt="Books" width="1500" height="210">
+                <div class="w3-display-middle w3-margin-top w3-center">
+                <h1 class="w3-xxxlarge w3-animate-top w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>HESS</b></span></h1>
+                <h2 class="w3-xxxlarge w3-animate-bottom"><span class="w3-hide-small w3-text-light-grey">Gallery</span></h2>
+                </div>
+              </header>
+
+    <div class="container">
+      <div class="mySlides">
+        <div class="numbertext">1 / 6</div>
+        <img src="333.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">2 / 6</div>
+        <img src="441.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">3 / 6</div>
+        <img src="442.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">4 / 6</div>
+        <img src="444.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">5 / 6</div>
+        <img src="445.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">6 / 6</div>
+        <img src="602.jpg" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+
+      <div class="caption-container">
+        <h2>Title</h2>
+        <p id="caption"> Description</p>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <img class="demo cursor" src="000.jpg" style="width:100%" onclick="currentSlide(1)" alt="Description">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="003.jpg" style="width:100%" onclick="currentSlide(2)" alt="Description">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="501.jpg" style="width:100%" onclick="currentSlide(3)" alt="Description">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="602.jpg" style="width:100%" onclick="currentSlide(4)" alt="Description">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="111.jpg" style="width:100%" onclick="currentSlide(5)" alt="Description">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="300.jpg" style="width:100%" onclick="currentSlide(6)" alt="Description">
+        </div>
+      </div>
+    </div>
+
+    <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+    </script>
+
+</div>
+</body>
+</html>
